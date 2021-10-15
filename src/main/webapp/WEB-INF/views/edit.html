@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #edit form{
+            font-size: 20px;
+            border: 1px solid black;
+            border-radius: 15px;
+            padding: 10px 0px 15px 10px;
+            width: 300px;
+        }
+        #edit form input {
+            font-size: 18px;
+            padding: 5px;
+        }
+
+    </style>
+</head>
+<body>
+<h2>Edit Product</h2>
+<p id="create" style="text-align: center">
+    <a style="color:white;text-decoration: none" th:href="@{/product}">
+        Back To product list
+    </a>
+</p>
+
+<div id="edit">
+    <form  th:action="@{/product/update}" method="post"
+    th:object="${product}">
+        <div>
+            <label >Id</label>
+            <input style="margin-left: 26px" type="text" th:field="*{id}">
+        </div>
+        <div>
+            <label >Name</label>
+            <input type="text" th:field="*{name}">
+        </div>
+        <div>
+            <label >Color</label>
+            <input type="text" th:field="*{color}">
+        </div>
+        <div>
+            <label >Price</label>
+            <input type="text" th:field="*{price}">
+        </div>
+        <input id="create" style="width: auto;padding: 10px;margin-top: 10px;font-size: 15px" type="submit" value="Edit"/>
+
+
+
+
+    </form>
+</div>
+
+<footer th:replace="/layout :: footer">
+
+</footer>
+</body>
+</html>

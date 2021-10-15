@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Create Product</h1>
+<p id="create">
+    <a style="color:white;text-decoration: none" th:href="@{/product}">
+        Back To Product List
+    </a>
+</p>
+
+<div id="formCreate">
+    <form th:action="@{/product/save}" th:object="${productForm}"
+        method="post" novalidate="novalidate"
+        enctype="multipart/form-data"
+    >
+        <input type="hidden" th:field="*{id}"/>
+        <div>
+            <label>Name</label>
+            <input type="text" th:field="*{name}">
+        </div>
+        <div>
+            <label>Color</label>
+            <input type="text" th:field="*{color}">
+        </div>
+        <div style="margin-left: 3px">
+            <label> Price </label>
+            <input type="text" th:field="*{price}">
+        </div>
+        <div style="margin-left: 3px">
+            <label> Image </label>
+            <input type="file" th:field="*{image}">
+        </div>
+        <input style="width: 60px;
+        margin-left: 120px; height: 30px;
+        background-color: dodgerblue;
+        color: white" type="submit" value="SAVE">
+
+    </form>
+
+</div>
+</footer>
+</body>
+</html>
